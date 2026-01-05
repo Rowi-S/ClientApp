@@ -1,0 +1,14 @@
+http://localhost:5269/clients
+
+###
+http://localhost:5269/clients/1
+
+###
+POST http://localhost:5269/clients
+Content-Type: application/json
+
+{
+    "FirstName": "Patrick",
+    "LastName": "Bob",
+    "Age": 79
+}
