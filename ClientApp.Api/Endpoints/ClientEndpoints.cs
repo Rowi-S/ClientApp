@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClientApp.Api.Endpoints;
 
+//todo add update en delete endpoint.
 public static class ClientEndpoints
 {
     const string GetClientEndpointName = "GetClient";
