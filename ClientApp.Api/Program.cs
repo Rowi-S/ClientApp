@@ -12,6 +12,7 @@ builder.AddClientAppDb();
 var app = builder.Build();
 
 app.MapClientsEndpoints();
+app.MapActivitiesEndpoints();
 
 app.MigrateDb();
 

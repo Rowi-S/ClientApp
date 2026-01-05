@@ -1,6 +1,7 @@
+### get all clients
 http://localhost:5269/clients
 
-###
+### get one client
 http://localhost:5269/clients/1
 
 ### creates a new client
@@ -26,3 +27,29 @@ Content-Type: application/json
 ### delete a client
 
 DELETE http://localhost:5269/clients/1
+
+### get all activities
+http://localhost:5269/activities
+
+### get one activity
+http://localhost:5269/activities/1
+
+### creates a new activity
+POST http://localhost:5269/activities
+Content-Type: application/json
+
+{
+    "Name": "Kaarten"
+}
+
+### update a activity
+PUT http://localhost:5269/activities/1
+Content-Type: application/json
+
+{
+    "Name": "Tv kijken"
+}
+
+### delete a client
+
+DELETE http://localhost:5269/activities/1
