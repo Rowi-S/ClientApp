@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClientApp.Api.Endpoints;
 
-//todo add update en delete endpoint.
+
 public static class ClientEndpoints
 {
     const string GetClientEndpointName = "GetClient";
@@ -68,5 +68,32 @@ public static class ClientEndpoints
             return Results.CreatedAtRoute(GetClientEndpointName, new { id = clientSummaryDto.Id }, clientSummaryDto);
         });
 
+
+        group.MapPut("/{id}", async (int id, UpdateClientDto updatedClient, ClientAppContext dbContext) =>
+        {
+            var existingClient = await dbContext.Clients.FindAsync(id);
+
+            if (existingClient is null)
+            {
+                return Results.NotFound();
+            }
+
+            existingClient.FirstName = updatedClient.FirstName;
+            existingClient.LastName = updatedClient.LastName;
+            existingClient.Age = updatedClient.Age;
+
+            await dbContext.SaveChangesAsync();
+
+            return Results.NoContent();
+        });
+
+        group.MapDelete("/{id}", async (int id, ClientAppContext dbContext) =>
+        {
+            await dbContext.Clients
+                .Where(client => client.Id == id)
+                .ExecuteDeleteAsync();
+
+            return Results.NoContent();
+        });
     }
 }

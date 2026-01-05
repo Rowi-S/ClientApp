@@ -3,8 +3,18 @@ http://localhost:5269/clients
 ###
 http://localhost:5269/clients/1
 
-###
+### creates a new client
 POST http://localhost:5269/clients
+Content-Type: application/json
+
+{
+    "FirstName": "Spongebob",
+    "LastName": "Bob",
+    "Age": 80
+}
+
+### update a client
+PUT http://localhost:5269/clients/1
 Content-Type: application/json
 
 {
@@ -12,3 +22,7 @@ Content-Type: application/json
     "LastName": "Bob",
     "Age": 79
 }
+
+### delete a client
+
+DELETE http://localhost:5269/clients/1
