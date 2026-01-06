@@ -39,7 +39,7 @@ POST http://localhost:5269/activities
 Content-Type: application/json
 
 {
-    "Name": "Kaarten"
+    "Name": "Koken"
 }
 
 ### update a activity
@@ -47,9 +47,23 @@ PUT http://localhost:5269/activities/1
 Content-Type: application/json
 
 {
-    "Name": "Tv kijken"
+    "Name": "Boswandeling"
 }
 
 ### delete a client
 
 DELETE http://localhost:5269/activities/1
+
+### creates a new activity
+POST http://localhost:5269/clients/2/activities
+Content-Type: application/json
+
+{
+  "activityId": 5,
+  "rating": 4,
+  "participationDate": "2026-01-05T00:00:00",
+  "notes": "Client participated actively and showed good motivation."
+}
+
+###
+GET  http://localhost:5269/clients/2/activities/5
